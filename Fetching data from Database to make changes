@@ -1,0 +1,6 @@
+import mysql.connector
+d=mysql.connector.connect(host='localhost',user='root',password='AGDAV')
+q=d.cursor()
+q.execute("use Project")
+q.execute("select * from Library")
+booklist=q.fetchall()

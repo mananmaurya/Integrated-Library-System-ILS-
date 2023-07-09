@@ -1,0 +1,21 @@
+def add():
+    q_1=eval(input("No. of books to be added"))
+    for x in range(q_1):
+        name_3=input("Enter name")
+        for x_8 in booklist:
+            v_1.append(x_8[1])
+        if name_3 in v_1:
+            print("Book already Exist")
+        else:
+            genre=input("Enter genre")
+            author=input("Enter author")
+            price=int(input("Enter price"))
+            newbook=[8,name_3,genre,author,price]
+            booklist.append(newbook)
+    y=input("Press F to view updated list")
+    if y in ['F','f']:
+        for b in range(len(booklist)):
+            
+            print("Name:",booklist[b][1], "Genre:",booklist[b][2],"Author:",booklist[b][3],"Price:",booklist[b][4])
+    else:
+        print("Invalid Character")

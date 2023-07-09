@@ -1,0 +1,48 @@
+print("WELCOME TO OUR INTERGRATED LIBRARY")
+print("Press L for login")
+print("Press V to view our collection of books")
+print("Press O to read a book online")
+
+
+a=input("Your Preferene:")
+if a in ['L','l']:
+    b=input("Username:")
+    if b in ['staff']:
+        c=eval(input("Password:"))
+        if c==123:
+            d=eval(input("Press 1 to view account or Press 2 to add new book"))
+            if d==1:
+                acc()
+            elif d==2:
+                add()
+        else:
+            print("Incorrect Password")
+    elif b in Name:
+        c_1=Name.index(b)
+        print("Name:",b)
+        print("Book you issued:",Book[c_1])
+        print("Date on which you issued book:",Date[c_1])
+        print("Days for which you issued:",Days[c_1])
+        print("Amount:Rs.",Days[c_1]*15)
+    else:
+        print("You are new to this Library")
+        t_1=input("Press I to issue a book")
+        if t_1 in ['I','i']:
+            regis()
+        else:
+            print("Invalid Character")
+elif a in ['V','v']:
+    booklist_1()
+elif a in ['O','o']:
+    print("Fare for reading every book is Rs.5 per hour")
+    filter_online()
+    a_1=input("Enter the name of book")
+    Book_3.append(a_1)
+    z_1=input("Enter Your name")
+    Name_3.append(z_1)
+    x_1=eval(input("Enter no. of hours you want to read"))
+    Hours.append(x_1)
+    print("Payment to be done:Rs.",x_1*5)
+    print("Your session will be ended in",x_1,"hours")
+else:
+    print("Invalid Character")

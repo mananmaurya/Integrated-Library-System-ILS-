@@ -1,0 +1,46 @@
+def acc():
+    q=eval(input("Press 1 to view issued books   Press 2 to view added books  Press 3 to view online books record"))
+    if q==1:
+        Book=["Madhushala","The Alchemist"]
+        Name=["Alex","Jack"]
+        Date=['01-02-2003','01-03-2004']
+        Days=[3,5]
+        for i in range(len(Name)):
+            print("Book:",Book[i],"Name:",Name[i],"Date:",Date[i],"Days:",Days[i])
+        q_q=input("Press P to view Profit made by renting books")
+        Profit=0
+        if q_q in ['P','p']:
+            for q_p in Days:
+                Profit=Profit+q_p
+            print("Profit made:Rs.",Profit*15)
+        else:
+            print("Invalid Character")
+    elif q==2:
+        Book_1=["Angles and Demons"]
+        Date_1=['02-03-2004']
+        Price=[450]
+        for o in range(len(Book_1)):
+            print("Book:",Book_1[o],"Date:",Date_1[o],"Price:",Price[o])
+        q_o=input("Press P to view Expenditure of new books")
+        Exp=0
+        if q_o in ['P','p']:
+            for q_v in Price:
+                Exp=Exp+q_v
+            print("Expenditure:Rs.",Exp)
+        else:
+            print("Invalid Character")
+        
+    elif q==3:
+        Book_3=["Theory of Relativity"]
+        Name_3=["Harsh"]
+        Hours=[3]
+        Profit_2=0
+        for o_p in range(len(Book_3)):
+            print("Book:",Book_3[o_p],"Name:",Name_3[o_p],"No. of hours",Hours[o_p])
+        q_g=input("Press P to view Profit made by online book reading")
+        if q_g in ['P','p']:
+            for q_f in Hours:
+                Profit_2=Profit_2+q_f
+            print("Profit made:Rs.",Profit_2*5)
+        else:
+            print("Invalid Character")

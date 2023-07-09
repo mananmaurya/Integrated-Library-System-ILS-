@@ -1,0 +1,17 @@
+def regis():
+    w_1=input("Enter name of book to be issued:")
+    if w_1 in Book:
+        r_1=Book.index(w_1)
+        print("Already isssued by:",Name[r_1])
+        print("Issued on:",Date[r_1])
+        print("It will be available after",Days[r_1],"days of issue.")
+    else:
+        Book.append(w_1)
+        b_1=input("Enter your name:")
+        Name.append(b_1)
+        d_1=input("Enter date:")
+        Date.append(d_1)
+        Da_1=int(input("Enter no. of days for book to be rented"))
+        Days.append(Da_1)
+        print("Payment to be done:Rs.",Da_1*15)
+        print("Your username is:",b_1)

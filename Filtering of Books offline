@@ -1,0 +1,31 @@
+def booklist_1():
+    for j in range(len(booklist)):
+        print("Name:",booklist[j][1], "Genre:",booklist[j][2],"Author:",booklist[j][3],"Price:",booklist[j][4],"Status:",booklist[j][5])
+    j_1=input("Press F to filter Books")
+    if j_1 in ['F','f']:
+        print("Press G to filter Books according to Genre")
+        print("Press A to filter Books according to Author")
+        print("Press P to filter Books according to Price")
+        c_2=input("Your Prefrence:")
+        if c_2 in ['G','g']:
+            c_3=input("Enter Genre:")
+            for e in booklist:
+                if c_3 in [e[2]]:
+                     print("Name:",e[1], "Genre:",e[2],"Author:",e[3],"Price:",e[4],"Status:",e[5])
+                else:
+                    z_7=0
+        elif c_2 in ['A','a']:
+            c_4=input("Enter Author:")
+            for e_1 in booklist:
+                if c_4 in [e_1[3]]:
+                     print("Name:",e_1[1], "Genre:",e_1[2],"Author:",e_1[3],"Price:",e_1[4],"Status:",e_1[5])
+                else:
+                    z_7=0
+        elif c_2 in ['p','P']:
+            c_5=eval(input("Enter the minimum price"))
+            c_6=eval(input("Enter the maximum price"))
+            for e_2 in booklist:
+                if c_5<=e_2[4] and c_6>=e_2[4]:
+                     print("Name:",e_2[1], "Genre:",e_2[2],"Author:",e_2[3],"Price:",e_2[4],"Status:",e_2[5])
+    else:
+        g_8=0

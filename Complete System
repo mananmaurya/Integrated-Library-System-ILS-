@@ -1,0 +1,228 @@
+import mysql.connector
+d=mysql.connector.connect(host='localhost',user='root',password='AGDAV')
+q=d.cursor()
+q.execute("create database Project")
+q.execute("use Project")
+q.execute("create table Library (Sno numeric , Name varchar(50) , Genre varchar(50) , Author  varchar(50) , Price numeric , Status varchar(50)")
+q.execute("insert into Library values(4,'Tom Sawyer','Fiction','Mark Twain',300,'Not Available')")
+q.execute("insert into Library values(5,'Madhushala','Poetry','Harivanshrai Bachchan',210,'Not Available')")
+q.execute("insert into Library values(6,'The Alchemist','Drama','Paulo Coelho',350,'Not Available')")
+q.execute("insert into Library values(7,'Silence Of Ghosts','Horror','Jonathan Aycliffe',100,'Not Available')")
+q.execute("insert into Library values(8,'Midnights Children','Historical Fiction','Salman Rushdie',400,'Available')")
+q.execute("insert into Library values(9,'The Satanic Verses','Fiction','Salman Rushdie',350,'Available')")
+q.execute("insert into Library values(10,'Quichotte','Saga','Salman Rushdie',450,'Available')")
+q.execute("insert into Library values(11,'Shame','Magical Realism','Salman Rushdie',500,'Available')")
+q.execute("insert into Library values(12,'Fury','Psychological','Salman Rushdie',650,'Available')")
+q.execute("insert into Library values(13,'Five Point Someone','Humour','Chetan Bhagat',250,'Available')")
+q.execute("insert into Library values(14,'Half Girlfriend','Romance','Chetan Bhagat',450,'Available')")
+q.execute("insert into Library values(15,'One Indian Girl','Narrative','Chetan Bhagat',350,'Available')")
+q.execute("insert into Library values(16,'Revolution 2020','Politics','Chetan Bhagat',200,'Available')")
+q.execute("insert into Library values(17,'The 3 Mistakes Of My Life','Fiction','Chetan Bhagat',250,'Available')")
+q.execute("insert into Library values(18,'The God Of Small Things','Fiction','Arundhati Roy',350,'Available')")
+q.execute("insert into Library values(19,'Ministry Of Utmost Happiness','Romance','Arundhati Roy',250,'Available')")
+q.execute("insert into Library values(20,'The End Of Imagination','Political','Arundhati Roy',350,'Available')")
+q.execute("insert into Library values(21,'Capitalism: A Ghost Story','Non Fiction','Arundhati Roy',750,'Available')")
+q.execute("insert into Library values(22,'The Cost Of Living','Realism','Arundhati Roy',550,'Available')")
+q.execute("insert into Library values(23,'Dracula','Horror','Bram Stoker',100,'Available')")
+q.execute("insert into Library values(24,'It','Horror','Stephen King',120,'Available')")
+q.execute("insert into Library values(25,'The Haunting Of Hill House','Horror','Shirley Jackson',150,'Available')")
+q.execute("insert into Library values(26,'Frankenstein','Horror','Mary Shelly',500,'Available')")
+q.execute("insert into Library values(27,'The Exorcist','Horror','William Blatty',600,'Available')")
+q.execute("insert into Library values(28,'Pride And Prejudice','Romance','Jane Austen',450,'Available')")
+d.commit()
+booklist=q.fetchall()
+Book=["Madhushala","The Alchemist"]
+Name=["Alex","Jack"]
+Date=['01-02-2003','01-03-2004']
+Days=[3,5]
+Book_1=["Angles and Demons"]
+Date_1=['02-03-2004']
+Price=[450]
+Book_3=["Theory of Relativity"]
+Name_3=["Harsh"]
+Hours=[3]
+v_1=[]
+def acc():
+    q=eval(input("Press 1 to view issued books   Press 2 to view added books  Press 3 to view online books record"))
+    if q==1:
+        Book=["Madhushala","The Alchemist"]
+        Name=["Alex","Jack"]
+        Date=['01-02-2003','01-03-2004']
+        Days=[3,5]
+        for i in range(len(Name)):
+            print("Book:",Book[i],"Name:",Name[i],"Date:",Date[i],"Days:",Days[i])
+        q_q=input("Press P to view Profit made by renting books")
+        Profit=0
+        if q_q in ['P','p']:
+            for q_p in Days:
+                Profit=Profit+q_p
+            print("Profit made:Rs.",Profit*15)
+        else:
+            print("Invalid Character")
+    elif q==2:
+        Book_1=["Angles and Demons"]
+        Date_1=['02-03-2004']
+        Price=[450]
+        for o in range(len(Book_1)):
+            print("Book:",Book_1[o],"Date:",Date_1[o],"Price:",Price[o])
+        q_o=input("Press P to view Expenditure of new books")
+        Exp=0
+        if q_o in ['P','p']:
+            for q_v in Price:
+                Exp=Exp+q_v
+            print("Expenditure:Rs.",Exp)
+        else:
+            print("Invalid Character")
+        
+    elif q==3:
+        Book_3=["Theory of Relativity"]
+        Name_3=["Harsh"]
+        Hours=[3]
+        Profit_2=0
+        for o_p in range(len(Book_3)):
+            print("Book:",Book_3[o_p],"Name:",Name_3[o_p],"No. of hours",Hours[o_p])
+        q_g=input("Press P to view Profit made by online book reading")
+        if q_g in ['P','p']:
+            for q_f in Hours:
+                Profit_2=Profit_2+q_f
+            print("Profit made:Rs.",Profit_2*5)
+        else:
+            print("Invalid Character")
+            
+def add():
+    q_1=eval(input("No. of books to be added"))
+    for x in range(q_1):
+        name_3=input("Enter name")
+        for x_8 in booklist:
+            v_1.append(x_8[1])
+        if name_3 in v_1:
+            print("Book already Exist")
+        else:
+            genre=input("Enter genre")
+            author=input("Enter author")
+            price=int(input("Enter price"))
+            newbook=[8,name_3,genre,author,price]
+            booklist.append(newbook)
+    y=input("Press F to view updated list")
+    if y in ['F','f']:
+        for b in range(len(booklist)):
+            
+            print("Name:",booklist[b][1], "Genre:",booklist[b][2],"Author:",booklist[b][3],"Price:",booklist[b][4])
+    else:
+        print("Invalid Character")
+        
+def booklist_1():
+    for j in range(len(booklist)):
+        print("Name:",booklist[j][1], "Genre:",booklist[j][2],"Author:",booklist[j][3],"Price:",booklist[j][4],"Status:",booklist[j][5])
+    j_1=input("Press F to filter Books")
+    if j_1 in ['F','f']:
+        print("Press G to filter Books according to Genre")
+        print("Press A to filter Books according to Author")
+        print("Press P to filter Books according to Price")
+        c_2=input("Your Prefrence:")
+        if c_2 in ['G','g']:
+            c_3=input("Enter Genre:")
+            for e in booklist:
+                if c_3 in [e[2]]:
+                     print("Name:",e[1], "Genre:",e[2],"Author:",e[3],"Price:",e[4],"Status:",e[5])
+                else:
+                    z_7=0
+        elif c_2 in ['A','a']:
+            c_4=input("Enter Author:")
+            for e_1 in booklist:
+                if c_4 in [e_1[3]]:
+                     print("Name:",e_1[1], "Genre:",e_1[2],"Author:",e_1[3],"Price:",e_1[4],"Status:",e_1[5])
+                else:
+                    z_7=0
+        elif c_2 in ['p','P']:
+            c_5=eval(input("Enter the minimum price"))
+            c_6=eval(input("Enter the maximum price"))
+            for e_2 in booklist:
+                if c_5<=e_2[4] and c_6>=e_2[4]:
+                     print("Name:",e_2[1], "Genre:",e_2[2],"Author:",e_2[3],"Price:",e_2[4],"Status:",e_2[5])
+    else:
+        g_8=0
+def filter_online():
+    print("Press G to filter Books according to Genre")
+    print("Press A to filter Books according to Author")
+    c_2=input("Your Prefrence:")
+    if c_2 in ['G','g']:
+        c_3=input("Enter Genre:")
+        for e in booklist:
+            if c_3 in [e[2]]:
+                print("Name:",e[1], "Genre:",e[2],"Author:",e[3],"Price:",e[4],"Status:",e[5])
+            else:
+                z_7=0
+    elif c_2 in ['A','a']:
+        c_4=input("Enter Author:")
+        for e_1 in booklist:
+            if c_4 in [e_1[3]]:
+                print("Name:",e_1[1], "Genre:",e_1[2],"Author:",e_1[3],"Price:",e_1[4],"Status:",e_1[5])
+            else:
+                z_7=0
+def regis():
+    w_1=input("Enter name of book to be issued:")
+    if w_1 in Book:
+        r_1=Book.index(w_1)
+        print("Already isssued by:",Name[r_1])
+        print("Issued on:",Date[r_1])
+        print("It will be available after",Days[r_1],"days of issue.")
+    else:
+        Book.append(w_1)
+        b_1=input("Enter your name:")
+        Name.append(b_1)
+        d_1=input("Enter date:")
+        Date.append(d_1)
+        Da_1=int(input("Enter no. of days for book to be rented"))
+        Days.append(Da_1)
+        print("Payment to be done:Rs.",Da_1*15)
+        print("Your username is:",b_1)
+        
+print("                            WELCOME TO OUR INTERGRATED LIBRARY")
+print("Press L for login")
+print("Press V to view our collection of books")
+print("Press O to read a book online")
+
+
+a=input("Your Preferene:")
+if a in ['L','l']:
+    b=input("Username:")
+    if b in ['staff']:
+        c=eval(input("Password:"))
+        if c==123:
+            d=eval(input("Press 1 to view account or Press 2 to add new book"))
+            if d==1:
+                acc()
+            elif d==2:
+                add()
+        else:
+            print("Incorrect Password")
+    elif b in Name:
+        c_1=Name.index(b)
+        print("Name:",b)
+        print("Book you issued:",Book[c_1])
+        print("Date on which you issued book:",Date[c_1])
+        print("Days for which you issued:",Days[c_1])
+        print("Amount:Rs.",Days[c_1]*15)
+    else:
+        print("You are new to this Library")
+        t_1=input("Press I to issue a book")
+        if t_1 in ['I','i']:
+            regis()
+        else:
+            print("Invalid Character")
+elif a in ['V','v']:
+    booklist_1()
+elif a in ['O','o']:
+    print("Fare for reading every book is Rs.5 per hour")
+    filter_online()
+    a_1=input("Enter the name of book")
+    Book_3.append(a_1)
+    z_1=input("Enter Your name")
+    Name_3.append(z_1)
+    x_1=eval(input("Enter no. of hours you want to read"))
+    Hours.append(x_1)
+    print("Payment to be done:Rs.",x_1*5)
+    print("Your session will be ended in",x_1,"hours")
+else:
+    print("Invalid Character")
